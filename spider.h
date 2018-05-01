@@ -2,6 +2,7 @@
 #define __SPIDER_H__
 
 #include "gfx.h"
+#include <cstddef>
 
 class Spider;
 
@@ -21,13 +22,15 @@ public:
 class Spider
 {
 private:
-  int speed;
+  float speed;
   Point vertex[30];
   Point position;
   Point direction;
   Point getVertex (const size_t&);
 public:
+  Spider ( void ) { }
   Spider (const int&, const int&, const size_t&);
+  void set_position (const int&, const int&);
   void set_direction ( const int&, const int&);
   float getX (void);
   float getY (void);

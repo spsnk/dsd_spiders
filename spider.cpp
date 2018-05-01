@@ -70,7 +70,7 @@ Spider::Spider (const int &x, const int &y, const size_t &speed):
 Point
 Spider::getVertex (const size_t &index)
 {
-  if (index < 0 || index > 10)
+  if (index < 0 || index > 29)
   {
     return Point ();
   }
@@ -84,9 +84,9 @@ Spider::getVertex (const size_t &index)
     in = index;
   }
   float
-  xv = position.x + vertex[in].x ;
+  xv = position.x + vertex[in].x  ;
   float
-  yv = position.y + vertex[in].y ;
+  yv = position.y + vertex[in].y  ;
   return Point (xv, yv);
 }
 
@@ -109,18 +109,44 @@ Spider::set_direction ( const int& x, const int& y)
 }
 
 void
+Spider::set_position ( const int& x, const int& y)
+{
+  position = Point(x,y);
+}
+void
 Spider::draw (void)
 {
   //position.x += speed*direction.getX();
   //position.y += speed*direction.getY();
-  for (int i = 0; i < 8; i++)
+  for (int i = 0; i < 7; i++)
   {
     gfx_line (getVertex (i).x, getVertex (i).y, getVertex (i+1).x, getVertex (i+1).y);
   }
+  gfx_line (getVertex (7).x, getVertex (7).y, getVertex (0).x, getVertex (0).y);
   for (int i = 8; i < 13; i++)
   {
     gfx_line (getVertex (i).x, getVertex (i).y, getVertex (i+1).x, getVertex (i+1).y);
   }
   gfx_line (getVertex (5).x, getVertex (5).y, getVertex (8).x, getVertex (8).y);
   gfx_line (getVertex (6).x, getVertex (6).y, getVertex (13).x, getVertex (13).y);
+  //end body
+  gfx_line (getVertex (6).x, getVertex (6).y, getVertex (14).x, getVertex (14).y);
+  gfx_line (getVertex (14).x, getVertex (14).y, getVertex (15).x, getVertex (15).y);
+  gfx_line (getVertex (6).x, getVertex (6).y, getVertex (16).x, getVertex (16).y);
+  gfx_line (getVertex (16).x, getVertex (16).y, getVertex (17).x, getVertex (17).y);
+  
+  gfx_line (getVertex (6).x, getVertex (6).y, getVertex (18).x, getVertex (18).y);
+  gfx_line (getVertex (18).x, getVertex (18).y, getVertex (19).x, getVertex (19).y);
+  gfx_line (getVertex (6).x, getVertex (6).y, getVertex (20).x, getVertex (20).y);
+  gfx_line (getVertex (20).x, getVertex (20).y, getVertex (21).x, getVertex (21).y);
+  
+  gfx_line (getVertex (5).x, getVertex (5).y, getVertex (22).x, getVertex (22).y);
+  gfx_line (getVertex (22).x, getVertex (22).y, getVertex (23).x, getVertex (23).y);
+  gfx_line (getVertex (5).x, getVertex (5).y, getVertex (24).x, getVertex (24).y);
+  gfx_line (getVertex (24).x, getVertex (24).y, getVertex (25).x, getVertex (25).y);
+  
+  gfx_line (getVertex (5).x, getVertex (5).y, getVertex (26).x, getVertex (26).y);
+  gfx_line (getVertex (26).x, getVertex (26).y, getVertex (27).x, getVertex (27).y);
+  gfx_line (getVertex (5).x, getVertex (5).y, getVertex (28).x, getVertex (28).y);
+  gfx_line (getVertex (28).x, getVertex (28).y, getVertex (29).x, getVertex (29).y);
 }

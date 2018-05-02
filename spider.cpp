@@ -67,6 +67,12 @@ Spider::Spider (const int &x, const int &y, const size_t &speed):
   direction = Point ( 0, 0 );
 }
 
+float
+Spider::getSpeed ( void )
+{
+  return speed;
+}
+
 Point
 Spider::getVertex (const size_t &index)
 {

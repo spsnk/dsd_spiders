@@ -34,6 +34,7 @@ public:
   void set_direction ( const int&, const int&);
   float getX (void);
   float getY (void);
+  float getSpeed (void);
   void draw ();
 };
 

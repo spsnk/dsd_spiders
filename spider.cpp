@@ -90,9 +90,9 @@ Spider::getVertex (const size_t &index)
     in = index;
   }
   float
-  xv = position.x + vertex[in].x  ;
+  xv = position.x + vertex[in].x;
   float
-  yv = position.y + vertex[in].y  ;
+  yv = position.y + vertex[in].y;
   return Point (xv, yv);
 }
 

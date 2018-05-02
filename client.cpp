@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <unistd.h>
 #include "PaqueteDatagrama.h"
 #include "SocketDatagrama.h"
 #include "data.h"
@@ -50,5 +51,6 @@ main (int argc, char* argv[])
     {
       cout << "El numero NO es primo" << endl;
     }
+    usleep(16666)
   }
 }

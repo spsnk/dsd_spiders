@@ -64,7 +64,7 @@ Spider::Spider (const int &x, const int &y, const size_t &speed):
   vertex[28] = Point ( 6, 2 );
   vertex[29] = Point ( 6,-6 );
   
-  direction = Point ( 0, 0 );
+  direction = Point ( 1, 1 );
 }
 
 float
@@ -89,10 +89,15 @@ Spider::getVertex (const size_t &index)
   {
     in = index;
   }
+  //float 
+  //angle = (direction.x / direction.y)+1.5707963268 ;
   float
   xv = position.x + vertex[in].x ;
   float
   yv = position.y + vertex[in].y ;
+  //xv = (xv*cos( (angle/180)*pi) - (yv*sin( (angle/180)*pi)) );
+  //yv = (yv*cos( (angle/180)*pi) + (xv*sin( (angle/180)*pi)) );
+  
   return Point (xv, yv);
 }
 
@@ -118,7 +123,9 @@ void
 Spider::set_position ( const int& x, const int& y)
 {
   position = Point(x,y);
+  path.push_back(position);
 }
+
 void
 Spider::draw (void)
 {
@@ -153,4 +160,8 @@ Spider::draw (void)
   gfx_line (getVertex (26).x, getVertex (26).y, getVertex (27).x, getVertex (27).y);
   gfx_line (getVertex (5).x, getVertex (5).y, getVertex (28).x, getVertex (28).y);
   gfx_line (getVertex (28).x, getVertex (28).y, getVertex (29).x, getVertex (29).y);
+  for(auto& pth : path)
+  {
+    gfx_point (pth.x, pth.y);
+  }
 }

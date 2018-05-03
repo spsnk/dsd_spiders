@@ -3,6 +3,8 @@
 
 #include "gfx.h"
 #include <cstddef>
+#include <cmath>
+#include <vector>
 
 class Spider;
 
@@ -24,6 +26,7 @@ class Spider
 private:
   float speed;
   Point vertex[30];
+  std::vector <Point> path;
   Point position;
   Point direction;
   Point getVertex (const size_t&);
@@ -32,10 +35,12 @@ public:
   Spider (const int&, const int&, const size_t&);
   void set_position (const int&, const int&);
   void set_direction ( const int&, const int&);
-  float getX (void);
-  float getY (void);
-  float getSpeed (void);
+  float getX ( void );
+  float getY ( void );
+  float getSpeed ( void );
   void draw ();
 };
+
+const float pi = acos(-1);
 
 #endif

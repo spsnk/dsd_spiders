@@ -1,5 +1,5 @@
 all:	server client
-
+	@echo done
 gfx:	gfx.c gfx.h
 	gcc -c gfx.c -o gfx.o
 server:	server.cpp PaqueteDatagrama.o SocketDatagrama.o data.o spider.o gfx.o

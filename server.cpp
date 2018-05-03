@@ -16,6 +16,7 @@ draw_thread ( int side_size )
 {  
   gfx_open (side_size, side_size, "Baby Spiders' Tag");
   gfx_color (7, 242, 255);
+  gfx_clear_color( 33, 33, 33 );
   int frame = 1;
   while (1)
   {
@@ -65,6 +66,7 @@ network_thread ( int port )
       int temp_id = msj_client.id;
       
       spiders[temp_id].set_position(msj_client.x, msj_client.y);
+      spiders[temp_id].set_direction(msj_client.x_dest, msj_client.y_dest);
       
       msj = msj_client;
       msj.x_dest = spiders[temp_id<3?temp_id+1:0].getX();
@@ -96,6 +98,7 @@ main (int argc, char* argv[])
     float sp_temp;
     cout << "Spider " << i++ << " speed: " << endl;
     cin >> sp_temp;
+    sp_temp = sp_temp<1?1:(sp_temp>10?10:sp_temp);
     s = Spider (side_size/2,side_size/2,sp_temp);
   }
   

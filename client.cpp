@@ -39,8 +39,8 @@ main (int argc, char* argv[])
     PaqueteDatagrama pk_recv (sizeof (msj));
     client.recibe(pk_recv);
     msj = *pk_recv.obtieneDatos();
-    cout << "<-" << endl;
-    msj.print();
+    //cout << "<-" << endl;
+    //msj.print();
     
     if( x_0 < 0 || y_0 < 0 )
     {
@@ -77,7 +77,7 @@ main (int argc, char* argv[])
     usleep(16666);
   }
   
-  cout << "Route completed\nDistance traveled: " << (msj.x - x_0)/(msj.y - y_0) << " pixels" << endl;
+  cout << "Route completed\nDistance traveled: " << sqrt(pow(msj.x - x_0,2)+pow(msj.y - y_0,2)) << " pixels" << endl;
   
   return 0;
 }

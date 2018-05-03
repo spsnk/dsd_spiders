@@ -3,6 +3,7 @@
 void
 data::print (void)
 {
+  std::cout << "ID:\t" << id << std::endl;
   std::cout << "X:\t" << x << std::endl;
   std::cout << "Y:\t" << y << std::endl;
   std::cout << "SP:\t" << speed << std::endl;

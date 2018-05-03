@@ -67,8 +67,8 @@ network_thread ( int port )
       spiders[temp_id].set_position(msj_client.x, msj_client.y);
       
       msj = msj_client;
-      msj.x_dest = spiders[temp_id<4?temp_id+1:0].getX();
-      msj.x_dest = spiders[temp_id<4?temp_id+1:0].getY();
+      msj.x_dest = spiders[temp_id<3?temp_id+1:0].getX();
+      msj.y_dest = spiders[temp_id<3?temp_id+1:0].getY();
     }
     cout << "Crafted data:" << endl;
     msj.print();
@@ -99,10 +99,10 @@ main (int argc, char* argv[])
     s = Spider (side_size/2,side_size/2,sp_temp);
   }
   
-  spiders[0].set_position(10,10);
-  spiders[1].set_position(side_size - 10,10);
-  spiders[2].set_position(side_size - 10,side_size - 10);
-  spiders[3].set_position(10,side_size - 10);
+  spiders[0].set_position(15,15);
+  spiders[1].set_position(side_size - 15,15);
+  spiders[2].set_position(side_size - 15,side_size - 15);
+  spiders[3].set_position(15,side_size - 15);
   
   thread drawing ( draw_thread, side_size );
   thread receiving ( network_thread, port );

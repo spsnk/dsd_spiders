@@ -90,9 +90,9 @@ Spider::getVertex (const size_t &index)
     in = index;
   }
   float
-  xv = position.x + vertex[in].x;
+  xv = position.x + vertex[in].x ;
   float
-  yv = position.y + vertex[in].y;
+  yv = position.y + vertex[in].y ;
   return Point (xv, yv);
 }
 
@@ -122,8 +122,6 @@ Spider::set_position ( const int& x, const int& y)
 void
 Spider::draw (void)
 {
-  //position.x += speed*direction.getX();
-  //position.y += speed*direction.getY();
   for (int i = 0; i < 7; i++)
   {
     gfx_line (getVertex (i).x, getVertex (i).y, getVertex (i+1).x, getVertex (i+1).y);
